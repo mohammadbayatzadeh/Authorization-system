@@ -8,8 +8,8 @@ const login = async (req, res, next) => {
     if (!email || !password) {
       throw { status: 404, message: "enter complete data" };
     }
-    if (!email.match(/^[a-z+][a-z0-9\.\-]{5,15}@[a-z]{3,10}\.[a-z]{3,10}/gim)) {
-      throw { status: 400, message: "invalid emial" };
+    if (!email.match(/^[a-z+][a-z0-9\.\-]{3,15}@[a-z]{3,10}\.[a-z]{3,10}/gim)) {
+      throw { status: 400, message: "invalid email" };
     }
 
     await connectDB();

@@ -17,8 +17,12 @@ const signToken = (payload) => {
   return jwt.sign(payload, process.env.SECRET);
 };
 
-const verifyToken = (payload) => {
-  return jwt.sign(payload, process.env.SECRET);
+const verifyToken = (token) => {
+  try {
+    return jwt.verify(token, process.env.SECRET);
+  } catch (err) {
+    return false;
+  }
 };
 module.exports = {
   hashPassword,
