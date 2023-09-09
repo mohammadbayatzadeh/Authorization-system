@@ -3,7 +3,7 @@ const { verifyToken } = require("../utils/auth");
 const { connectDB } = require("../utils/connectDB");
 
 const checkAuth = async (req, res, next) => {
-  const { authorization } = req?.headers;
+  const { authorization } = req.headers;
 
   try {
     const [bearer, token] = authorization.split(" ");
@@ -20,7 +20,7 @@ const checkAuth = async (req, res, next) => {
     };
     return next();
   } catch (err) {
-    next({ status: 401, message: "authentication fialed login again" });
+    next({ status: 401, message: "authentication failed login again" });
   }
 };
 
